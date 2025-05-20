@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 
 class MyCard extends StatelessWidget {
-  const MyCard({super.key});
+  final double balance;
+  final int cardNumber;
+  final int expiryMonth;
+  final int expiryYear;
+  final color;
+
+  const MyCard(
+      {super.key,
+      required this.balance,
+      required this.cardNumber,
+      required this.expiryMonth,
+      required this.expiryYear,
+      required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +23,7 @@ class MyCard extends StatelessWidget {
         width: 300,
         padding: EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: Colors.deepPurple[300],
+          color: color,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
@@ -27,7 +39,7 @@ class MyCard extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Text(
-              '\$5,250.30',
+              '\$' + balance.toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 28,
@@ -39,14 +51,14 @@ class MyCard extends StatelessWidget {
               children: [
                 //numero de la tarjeta
                 Text(
-                  '**** 3456',
+                  cardNumber.toString(),
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
                 //fecha de expliracion
                 Text(
-                  '10/28',
+                  expiryMonth.toString() + '/' + expiryYear.toString(),
                   style: TextStyle(
                     color: Colors.white,
                   ),
