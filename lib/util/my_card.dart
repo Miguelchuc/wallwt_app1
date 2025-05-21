@@ -29,23 +29,33 @@ class MyCard extends StatelessWidget {
         child: Column(
           //alineamos los textos pegado al borde izquierdo
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(height: 10),
-            Text(
-              'Balance',
-              style: TextStyle(
-                color: Colors.white,
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Balance',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                Image.asset(
+                  'lib/icons/visa.png',
+                  height: 50,
+                )
+              ],
             ),
             SizedBox(height: 10),
             Text(
-              '\$' + balance.toString(),
+              '\$$balance',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 28,
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -58,7 +68,7 @@ class MyCard extends StatelessWidget {
                 ),
                 //fecha de expliracion
                 Text(
-                  expiryMonth.toString() + '/' + expiryYear.toString(),
+                  '$expiryMonth/$expiryYear',
                   style: TextStyle(
                     color: Colors.white,
                   ),
